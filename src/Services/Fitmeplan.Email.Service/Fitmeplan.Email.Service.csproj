@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\Libraries\Fitmeplan.Hoster\Configs\appsettings.json" Link="Configs\appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Configs\servicesettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="RazorLight" Version="2.0.0-beta1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.Autofac\Fitmeplan.Autofac.csproj" />
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.Hoster\Fitmeplan.Hosting.csproj" />
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.ServiceBus.Azure\Fitmeplan.ServiceBus.Azure.csproj" />
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.ServiceBus.RawRabbit\Fitmeplan.ServiceBus.RawRabbit.csproj" />
+    <ProjectReference Include="..\Fitmeplan.Email.Service.Contracts\Fitmeplan.Email.Service.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\ResetPasswordEmailBody.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Configs\servicesettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

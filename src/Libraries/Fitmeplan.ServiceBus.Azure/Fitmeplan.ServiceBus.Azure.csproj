@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Administration\**" />
+    <Compile Remove="Configuration\**" />
+    <Compile Remove="Receiving\**" />
+    <Compile Remove="Sending\**" />
+    <Compile Remove="Utilities\**" />
+    <EmbeddedResource Remove="Administration\**" />
+    <EmbeddedResource Remove="Configuration\**" />
+    <EmbeddedResource Remove="Receiving\**" />
+    <EmbeddedResource Remove="Sending\**" />
+    <EmbeddedResource Remove="Utilities\**" />
+    <None Remove="Administration\**" />
+    <None Remove="Configuration\**" />
+    <None Remove="Receiving\**" />
+    <None Remove="Sending\**" />
+    <None Remove="Utilities\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="AzureServiceBusTransportInfrastructure.cs" />
+  </ItemGroup>
+  
+    <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.1" />
+    <PackageReference Include="Microsoft.Azure.ServiceBus" Version="3.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.0" />    
+  </ItemGroup>
+  
+    <ItemGroup>
+      <ProjectReference Include="..\Fitmeplan.Identity\Fitmeplan.Identity.csproj" />
+      <ProjectReference Include="..\Fitmeplan.ServiceBus\Fitmeplan.ServiceBus.csproj" />
+    </ItemGroup>
+
+</Project>

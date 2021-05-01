@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+	
+    <ItemGroup>
+      <Compile Remove="logs\**" />
+      <EmbeddedResource Remove="logs\**" />
+      <None Remove="logs\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Startup - Copy.cs" />
+      <Compile Remove="Startup.nservicebus.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Configs\servicesettings.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\Libraries\Fitmeplan.Hoster\Configs\appsettings.json" Link="Configs\appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Libraries\Fitmeplan.Autofac\Fitmeplan.Autofac.csproj" />
+        <ProjectReference Include="..\..\Libraries\Fitmeplan.Data\Fitmeplan.Data.csproj" />
+        <ProjectReference Include="..\..\Libraries\Fitmeplan.Hoster\Fitmeplan.Hosting.csproj" />
+        <ProjectReference Include="..\..\Libraries\Fitmeplan.ServiceBus.Azure\Fitmeplan.ServiceBus.Azure.csproj" />
+        <ProjectReference Include="..\..\Libraries\Fitmeplan.ServiceBus.RawRabbit\Fitmeplan.ServiceBus.RawRabbit.csproj" />
+        <ProjectReference Include="..\..\Libraries\Fitmeplan.ServiceBus\Fitmeplan.ServiceBus.csproj" />
+        <ProjectReference Include="..\..\Libraries\Fitmeplan.Storage.Azure\Fitmeplan.Storage.Azure.csproj" />
+        <ProjectReference Include="..\..\Libraries\Fitmeplan.Storage.Client.Ftp\Fitmeplan.Storage.Client.Ftp.csproj" />
+        <ProjectReference Include="..\..\Libraries\Fitmeplan.Storage.Local\Fitmeplan.Storage.Local.csproj" />
+        <ProjectReference Include="..\..\Libraries\Fitmeplan.Storage\Fitmeplan.Storage.csproj" />
+        <ProjectReference Include="..\Fitmeplan.Account.Service.Contracts\Fitmeplan.Account.Service.Contracts.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Configs\servicesettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CsvHelper" Version="15.0.5" />
+      <PackageReference Include="DocumentFormat.OpenXml" Version="2.9.1" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
+      <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
+      <PackageReference Include="Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets" Version="1.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resource.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resource.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resource.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="nlog.config">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.Common\Fitmeplan.Common.csproj" />
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.Contracts\Fitmeplan.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

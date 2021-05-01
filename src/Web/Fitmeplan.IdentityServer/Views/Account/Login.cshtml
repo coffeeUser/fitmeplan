@@ -1,0 +1,24 @@
+@model LoginViewModel
+
+<!--Change inputs classes if Model is not valid-->
+@{
+    var invalid = "";
+    if (ViewContext.ModelState.IsValid == false)
+    {
+        invalid = "invalid";
+    }
+}
+
+    <form asp-route="Login" class="aim-form">
+        <input type="hidden" asp-for="ReturnUrl" />
+        <h3 class="aim-form__title">Login</h3>
+        <label asp-for="Username" class="visually-hidden">Enter your email</label>
+        <input asp-for="Username" class="aim-form__input @invalid" placeholder="Email" autofocus>
+        <label asp-for="Password" class="visually-hidden">Enter your password</label>
+        <input type="password" class="aim-form__input @invalid" placeholder="Password" asp-for="Password" autocomplete="off">
+        <!--Error message-->
+        <partial name="_ValidationSummary" />
+        <!--Error message-->
+        <button type="submit" name="button" value="login" class="aim-form__submit">Login</button>
+        <a asp-controller="Account" asp-action="ForgotPassword" asp-route-isMobileClient="@Model.IsMobileClient" asp-route-returnUrl="@Model.ReturnUrl" class="aim-form__forgot-pass">Forgot password?</a>
+    </form>

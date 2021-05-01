@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Fitmeplan.Account.Service": {
+      "commandName": "Project"
+    }
+  }
+}

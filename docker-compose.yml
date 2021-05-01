@@ -1,0 +1,53 @@
+version: '3.4'
+
+volumes:
+  fitmeplan-rabbit-volume:
+  fitmeplan-sftp-volume:
+
+services:
+############################################# auxilary container to start dependencies #####################
+  fitmeplan.start-dependencies: 
+    image: 'dadarek/wait-for-dependencies:0.1' 
+    tty: true 
+    command: 'rabbit:5672' 
+    stdin_open: true 
+    depends_on: 
+    - 'fitmeplan.rabbit' 
+    container_name: 'fitmeplan-start-dependencies' 
+
+############################################# rabbitmq service #####################
+  fitmeplan.rabbit:
+    image: rabbitmq:3.7.13-management-alpine
+    environment:
+    - RABBITMQ_DEFAULT_USER=fitmeplan-user
+    - RABBITMQ_DEFAULT_VHOST=fitmeplan
+    - RABBITMQ_DEFAULT_PASS=fitmeplan
+    ports: 
+    - '5672:5672' 
+    - '15673:15672' 
+    volumes: 
+    - 'fitmeplan-rabbit-volume:/var/lib/rabbitmq' 
+    container_name: 'fitmeplan-rabbit' 
+    restart: 'unless-stopped' 
+
+############################################# redis service #####################
+  fitmeplan.redis:
+    image: redis
+    ports: 
+    - '6379:6379' 
+    container_name: 'fitmeplan-redis' 
+    restart: 'unless-stopped' 
+    
+############################################# sftp server #####################
+  fitmeplan.sftp:
+    image: atmoz/sftp
+    volumes:
+    #- './users.conf:/etc/sftp-users.conf:ro'
+    #- './init.sh:/etc/sftp.d/init.sh:ro'
+    - 'fitmeplan-sftp-volume:/home/fitmeplan-user/share'
+    privileged: true
+    ports: 
+    - '22:22'
+    container_name: 'fitmeplan-sftp'
+    restart: 'unless-stopped' 
+    command: fitmeplan-user:pass:1001

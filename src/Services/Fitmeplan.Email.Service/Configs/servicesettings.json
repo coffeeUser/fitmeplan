@@ -1,0 +1,17 @@
+{
+  "Smtp": {
+    "UserName": "",
+    "Password": "",
+    "HostName": "qts-ap04.qulix.com",
+    "TimeOut": "100000",
+    "ServiceEmail": "iam@support.com",
+    "EnableSsl": "false",
+    "Port": "25"
+  },
+  "NotificationConfiguration": {
+    "TeamCreationEnabled": true
+  },
+  "ResetPasswordConfiguration": {
+    "Subject": "Iam - Reset password"
+  } 
+}

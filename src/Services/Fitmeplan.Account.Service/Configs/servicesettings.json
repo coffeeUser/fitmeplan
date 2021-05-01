@@ -1,0 +1,16 @@
+{
+  "FtpClientSettings": {
+    "Host": "localhost",
+    "Username": "iam-user",
+    "Password": "pass",
+    "Path": "/share",
+    "FileName": "HR Data.xlsx",
+    "LogFileName": "Log.txt",
+    "ConnectionRetryAttempts": 5
+  },
+  "PinLockoutSettings": {
+    "LoginPeriod": "0.01:00:00",
+    "LoginAttempts": 5,
+    "LockLengthInMinutes": 60
+  }
+}

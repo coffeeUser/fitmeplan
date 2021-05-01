@@ -1,0 +1,40 @@
+﻿@using IdentityServer4.Extensions
+@{
+    string name = null;
+    if (!true.Equals(ViewData["signed-out"]))
+    {
+        name = Context.User?.GetDisplayName();
+    }
+    string version = typeof(AccountController).Assembly.GetName().Version.ToString();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>ALOCURA</title>
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />*@
+    @*<link rel="stylesheet" href="~/css/site.css" />*@
+    <link rel="stylesheet" href="~/normalize-mob.css">
+    <link rel="stylesheet" href="~/fonts-mob.css">
+    <link rel="stylesheet" href="~/styles-mob.css">
+</head>
+<body>
+    <div class="aim-login-page">
+        <div class="al-col">
+            <img src="~/img/AlocuraLogo.png" alt="logo">
+            @RenderBody()
+        </div>
+    </div>
+
+<script src="~/lib/jquery/jquery.js"></script>
+@*<script src="~/lib/bootstrap/js/bootstrap.js"></script>*@
+@RenderSection("scripts", required: false)
+</body>
+</html>
+
+

@@ -1,0 +1,24 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2
+ARG BUILD_CONFIGURATION=Debug
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true
+EXPOSE 80
+
+WORKDIR /src
+COPY ["src/Services/Fitmeplan.Account.Service.Contracts/Fitmeplan.Account.Service.Contracts.csproj", "src/Services/Fitmeplan.Account.Service.Contracts/"]
+COPY ["src/Fitmeplan.Common/Fitmeplan.Common.csproj", "src/Fitmeplan.Common/"]
+COPY ["src/Fitmeplan.Contracts/Fitmeplan.Contracts.csproj", "src/Fitmeplan.Contracts/"]
+COPY ["src/Fitmeplan.Identity/Fitmeplan.Identity.csproj", "src/Fitmeplan.Identity/"]
+COPY ["src/Fitmeplan.ServiceBus.Azure/Fitmeplan.ServiceBus.Azure.csproj", "src/Fitmeplan.ServiceBus.Azure/"]
+COPY ["src/Fitmeplan.ServiceBus.RawRabbit/Fitmeplan.ServiceBus.RawRabbit.csproj", "src/Fitmeplan.ServiceBus.RawRabbit/"]
+COPY ["src/Fitmeplan.ServiceBus/Fitmeplan.ServiceBus.csproj", "src/Fitmeplan.ServiceBus/"]
+COPY ["src/web/Fitmeplan.IdentityServer/Fitmeplan.IdentityServer.csproj", "src/web/Fitmeplan.IdentityServer/"]
+
+RUN dotnet restore "src/web/Fitmeplan.IdentityServer/Fitmeplan.IdentityServer.csproj"
+COPY . .
+WORKDIR "/src/src/web/Fitmeplan.IdentityServer"
+RUN dotnet build --no-restore "Fitmeplan.IdentityServer.csproj" -c $BUILD_CONFIGURATION
+
+RUN echo "exec dotnet run --no-build --no-launch-profile -c $BUILD_CONFIGURATION --" > /entrypoint.sh
+
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]

@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Config.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="tempkey.rsa" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="tempkey.rsa">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
+    <PackageReference Include="IdentityServer4" Version="2.3.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets" Version="1.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.4.0" />
+    <PackageReference Include="RawRabbit.Enrichers.HttpContext" Version="2.0.0-rc5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.Identity\Fitmeplan.Identity.csproj" />
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.ServiceBus.Azure\Fitmeplan.ServiceBus.Azure.csproj" />
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.ServiceBus.RawRabbit\Fitmeplan.ServiceBus.RawRabbit.csproj" />
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.ServiceBus\Fitmeplan.ServiceBus.csproj" />
+    <ProjectReference Include="..\..\Libraries\Fitmeplan.Storage.Redis\Fitmeplan.Storage.Redis.csproj" />
+    <ProjectReference Include="..\..\Services\Fitmeplan.Account.Service.Contracts\Fitmeplan.Account.Service.Contracts.csproj" />
+    <ProjectReference Include="..\..\Services\Fitmeplan.Email.Service.Contracts\Fitmeplan.Email.Service.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
