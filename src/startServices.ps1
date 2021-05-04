@@ -8,11 +8,11 @@ try
 	$serviceDirectory = [string]::Format("{0}\Web\{1}", ${env:SolutionPath}, "Fitmeplan.Api")
 	Start-Process -FilePath "dotnet " -ArgumentList "exec", "$serviceDirectory\bin\Debug\netcoreapp3.1\Fitmeplan.Api.dll" -WorkingDirectory "$serviceDirectory" -PassThru
 	
-	# $serviceDirectory = [string]::Format("{0}\{1}", ${env:SolutionPath}, "..\..\Fitmeplan.Client\src\Fitmeplan.Client\")
-	# Write-Host $serviceDirectory
-	# if(Test-Path $serviceDirectory) {
-		# Start-Process -FilePath "dotnet" -ArgumentList "exec", "$serviceDirectory\bin\Debug\netcoreapp3.1\Fitmeplan.Client.App.dll" -WorkingDirectory "$serviceDirectory" -PassThru
-	# }
+	$servicedirectory = [string]::format("{0}\Web\{1}", ${env:SolutionPath}, "Fitmeplan.Client")
+	write-host $servicedirectory
+	if(test-path $servicedirectory) {
+		start-process -filepath "dotnet" -argumentlist "exec", "$servicedirectory\bin\debug\netcoreapp3.1\Fitmeplan.Client.dll" -workingdirectory "$servicedirectory" -passthru
+	}
 
 	foreach ($item in Get-ChildItem -Directory -Recurse -Filter "*.Service" | ?{ $_.PSIsContainer })
 	{

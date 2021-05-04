@@ -57,6 +57,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{14
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fitmeplan.Db.Migration", "src\Database\Fitmeplan.Db.Migration\Fitmeplan.Db.Migration.csproj", "{4E556931-B1DF-4FF3-9955-D5B01A4F227E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fitmeplan.Client", "src\Web\Fitmeplan.Client\Fitmeplan.Client.csproj", "{1F836197-C9D4-4F2E-A25E-E86909360E9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -155,6 +157,10 @@ Global
 		{4E556931-B1DF-4FF3-9955-D5B01A4F227E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E556931-B1DF-4FF3-9955-D5B01A4F227E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E556931-B1DF-4FF3-9955-D5B01A4F227E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F836197-C9D4-4F2E-A25E-E86909360E9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F836197-C9D4-4F2E-A25E-E86909360E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F836197-C9D4-4F2E-A25E-E86909360E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F836197-C9D4-4F2E-A25E-E86909360E9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -183,6 +189,7 @@ Global
 		{23018240-93F1-43C7-8C53-007978965152} = {3AB4B543-3338-4895-882B-97320B76BC69}
 		{E95F77DD-31F2-476A-AC0B-C9E418DC02F5} = {3AB4B543-3338-4895-882B-97320B76BC69}
 		{4E556931-B1DF-4FF3-9955-D5B01A4F227E} = {14A130E5-9C16-42CD-B4AA-5260F3928763}
+		{1F836197-C9D4-4F2E-A25E-E86909360E9D} = {2180C4DE-CA0C-47E1-A277-C5D502AE0205}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0AA26485-99AA-4AEF-B16E-ED004B20E86B}

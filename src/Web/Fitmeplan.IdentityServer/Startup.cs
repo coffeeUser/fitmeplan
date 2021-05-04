@@ -100,6 +100,10 @@ namespace Fitmeplan.IdentityServer
                 .AddDeveloperSigningCredential()
                 .AddEndpoint<ActAsEndpoint>("actas_endpoint", new PathString("/connect/actas"));
 
+            //chrome >80 cookie issue
+            //https://www.thinktecture.com/en/identity/samesite/prepare-your-identityserver/
+            services.ConfigureNonBreakingSameSiteCookies();
+
             services.AddAuthentication()
                 //.AddGoogle(options =>
                 //{
@@ -199,6 +203,10 @@ namespace Fitmeplan.IdentityServer
             });
 
             app.UseIdentityServer();
+
+            // Add this before any other middleware that might write cookies
+            //https://www.thinktecture.com/en/identity/samesite/prepare-your-identityserver/
+            app.UseCookiePolicy();
 
             app.UseStaticFiles();
             //app.UseMvcWithDefaultRoute();

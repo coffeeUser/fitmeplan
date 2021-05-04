@@ -21,7 +21,7 @@ namespace Fitmeplan.IdentityServer.Configuration
             var sha256 = "secret".Sha256();
             return new[]
             {
-                // iam-client-app
+                // fitmeplan-client-app
                 new Client
                 {
                     ClientId = "fitmeplan-client-app",
@@ -62,7 +62,7 @@ namespace Fitmeplan.IdentityServer.Configuration
                     AccessTokenLifetime = accessTokenLifetime, // Lifetime of access token in seconds (defaults to 3600 seconds / 1 hour)
                 },
 
-                //iam-mobile-client-app
+                //fitmeplan-mobile-client-app
                 new Client
                 {
                     ClientId = "fitmeplan-mobile-client-app",
