@@ -8,7 +8,6 @@ namespace Fitmeplan.Client.Controllers
     {
         public IActionResult Index()
         {
-            //return View();
             return File("~/dist/index.html", "text/html");
         }
     }

@@ -1,16 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --blue: #009DFF;
+  --dark-blue: #3652be;
+  --blue-tr-85: rgba(57, 168, 240, 0.15);
+  --gray: #A4ABCA;
+  --red: #FF5348;
+  --shadow: rgba(164, 171, 202, 0.25);
 }
 
-code {
-  color: #e01a76;
+html {
+  font-size: 10px;
+  font-family: PTRootUI, Arial, sans-serif;
+  line-height: 1.25;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.angular-root {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("img/login-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.aim-form__submit {
+  display: inline-block;
+  min-width: 13rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1.5rem 1rem;
+  font-size: 1.4rem;
+  color: var(--white);
+  border: 0;
+  border-radius: 20px;
+  background-color: var(--black);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.aim-form__submit:hover,
+.aim-form__submit:focus,
+.aim-form__submit:active {
+  background-color: var(--blue);
+  outline: none;
 }

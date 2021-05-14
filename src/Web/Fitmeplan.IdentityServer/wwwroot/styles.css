@@ -1,7 +1,7 @@
 :root {
     --white: #ffffff;
-    --black: #231f20;
-    --blue: #4661CA;
+    --black: #000000;
+    --blue: #009DFF;
     --dark-blue: #3652be;
     --blue-tr-85: rgba(57, 168, 240, 0.15);
     --gray: #A4ABCA;
@@ -99,7 +99,7 @@ html {
     margin-top: 0;
     margin-bottom: 1.7rem;
     font-size: 2.4rem;
-    color: var(--white);
+    color: var(--black);
     font-weight: bold;
 }
 
@@ -107,7 +107,7 @@ html {
     width: 100%;
     padding: 1rem;
     font-size: 1.4rem;
-    color: var(--white);
+    color: var(--black);
     border: 1px solid transparent;
     border-radius: 2px;
     background-color: var(--blue-tr-85);
@@ -120,13 +120,13 @@ html {
     align-self: flex-start;
     margin-bottom: 0.5rem;
     font-size: 1.4rem;
-    color: var(--gray);
+    color: var(--black);
 }
 
 .aim-form__text {
     margin-top: 0;
     font-size: 1.6rem;
-    color: var(--white);
+    color: var(--black);
     text-align: center;
 }
 
@@ -139,12 +139,12 @@ html {
 }
 
 .aim-form__input::placeholder {
-    color: var(--gray);
+    color: var(--blue);
 }
 
 .aim-form__input:focus {
     outline: none;
-    border-color: #a9b6e6;
+    border-color: var(--blue);
     box-shadow: inset 1px 1px 2px rgba(164, 171, 202, 0.25), 0 0 0 0.2rem rgba(70, 97, 202, 0.25);
 }
 
@@ -166,14 +166,14 @@ html {
 .aim-form__submit:hover,
 .aim-form__submit:focus,
 .aim-form__submit:active {
-    background-color: var(--dark-blue);
+    background-color: var(--blue);
     outline: none;
 }
 
 
 .aim-form__forgot-pass {
     font-size: 1.4rem;
-    color: var(--gray);
+    color: var(--blue);
 }
 
 .filter {
